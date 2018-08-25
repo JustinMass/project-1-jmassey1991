@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import express from 'express';
 import * as userDao from '../dao/user-dao';
 
-// all routes defiend with this object will imply /movies
+// all routes defiend with this object will imply /users
 export const userRouter = express.Router(); // routers represent a subset of routes for the express application
 
 /**
@@ -24,7 +24,7 @@ userRouter.get('', async (req: Request, resp: Response) => {
  */
 userRouter.get('/:id', async (req, resp) => {
   const id = +req.params.id; // convert the id to a number
-  console.log(`retreiving user with id  ${id}`)
+  console.log(`retreiving user with id ${id}`)
   try {
     let user = await userDao.findById(id);
     if (user !== undefined) {
@@ -56,16 +56,16 @@ userRouter.post('', async (req, resp) => {
 /**
  * Add a movie to users list
  */
-userRouter.post('/:id/movies', async (req, resp) => {
-  console.log('creating user')
-  try {
-    const id = await userDao.addMovieToUser(req.body.movieId, req.params.id);
-    resp.sendStatus(201);
-  } catch (err) {
-    console.log(err);
-    resp.sendStatus(500);
-  }
-})
+// userRouter.post('/:id/movies', async (req, resp) => {
+//   console.log('creating user')
+//   try {
+//     const id = await userDao.addMovieToUser(req.body.movieId, req.params.id);
+//     resp.sendStatus(201);
+//   } catch (err) {
+//     console.log(err);
+//     resp.sendStatus(500);
+//   }
+// })
 
 userRouter.post('/login', async (req, resp) => {
 

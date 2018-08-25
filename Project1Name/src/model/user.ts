@@ -1,17 +1,22 @@
-import { Movie } from "./movie";
 
 export class User {
-  id = 0;
+  user_id = 0;
   username = '';
-  password = '';
-  role = 'customer';
-  movies: Movie[] = [];
+  user_pass = '';
+  user_fname = '';
+  user_lname = '';
+  user_email = '';
+  user_role = '';
+  
 
-  constructor(id?: number, username?: string, password?: string, role?: string, movies?: Movie[]) {
-    id && (this.id = id);
+  constructor(id?: number, username?: string, password?: string, firstName?: string, lastName?: string, email?: string, role?: string, ) {
+    id && (this.user_id = id);
     username && (this.username = username);
-    password && (this.password = password);
-    role && (this.role = role);
-    movies && (this.movies = movies);
+    password && (this.user_pass = password);
+    firstName && (this.user_fname = firstName);
+    lastName && (this.user_lname = lastName);
+    email && (this.user_email = email);
+    role && (this.user_role = role);
+    
   }
 }

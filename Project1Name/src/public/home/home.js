@@ -1,19 +1,23 @@
-function addMovieToTable(movie) {
+function addUserToTable(user) {
   const tbody = document.getElementById('movie-table-body');
   tbody.innerHTML += `
   <tr>
-    <th scope="row">${movie.title}</th>
-    <td>${movie.numBlades}</td>
-    <td>${movie.year}</td>
+  <th scope="row">${user.user_id}</th>
+  <td>${user.username}</td>
+  <td>${user.user_pass}</td>
+  <td>${user.user_fname}</td>
+  <td>${user.user_lname}</td>
+  <td>${user.user_email}</td>
+  <td>${user.user_role}</td>
   </tr>
   `
 }
 
-fetch('http://localhost:9001/movies')
+fetch('http://localhost:9001/users')
   .then(res => res.json())
   .then(res => {
-    res.forEach(movie => {
-      addMovieToTable(movie);
+    res.forEach(user => {
+      addUserToTable(user);
     })
   })
   .catch(err => {
