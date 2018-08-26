@@ -3,7 +3,7 @@ import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
 import session from 'express-session';
-import { movieRouter } from './routers/movie-router';
+import { reimbRouter } from './routers/reimb-router';
 import { userRouter } from './routers/user-router';
 
 // create the app object from express
@@ -45,7 +45,7 @@ app.use(bodyParser.json());
 /*********************************************************************************************
  * API Routers
  ********************************************************************************************/
-app.use('/movies', movieRouter);
+app.use('/reimbs', reimbRouter);
 app.use('/users', userRouter);
 
 const server = app.listen(port, () => {

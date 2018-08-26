@@ -67,6 +67,9 @@ userRouter.post('', async (req, resp) => {
 //   }
 // })
 
+/**
+ * login with username and pass
+ */
 userRouter.post('/login', async (req, resp) => {
 
   try {
