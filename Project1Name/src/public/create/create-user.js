@@ -34,3 +34,7 @@ function createUser(event) {
     console.log(err);
   });
 }
+if(!localStorage.getItem('user') || JSON.parse(localStorage.getItem('user')).user_role !== 'fm'){
+  document.getElementById('roleInput').style.visibility = "hidden";
+  document.getElementById('input-role').value = 'employee';
+}

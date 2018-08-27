@@ -34,3 +34,6 @@ function login(event) {
 
 // setting user to empty if calling log in screen
 localStorage.clear();
+// localStorage.setItem('nav', `
+
+// `)

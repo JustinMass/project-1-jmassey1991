@@ -8,7 +8,7 @@
   <meta name="author" content="">
   <link rel="icon" href="../../../../favicon.ico">
 
-  <title>Signin Template for Bootstrap</title>
+  <title>Please Help Poor</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
@@ -17,30 +17,27 @@
   <link href="signin.css" rel="stylesheet">
 </head>
 
-<body class="text-center signin-container">
+<body class="text-center signin-container bg-secondary">
   <form class="form-signin" onsubmit="login(event)">
-    <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <!-- <img class="mb-4" src="http://www.villupwritings.com/wp-content/uploads/2017/02/3fa031a122f4aa6f728e4e92fcbbec32.jpg" alt="poor" width="300" height="250">  -->
+    <h1 class="h3 mb-3 font-weight-normal" id="pleaseHelpPoor">Please Help Poor</h1>
+    <br>
+    <!-- <h1 class="h3 mb-3 font-weight-normal">Sign in</h1> -->
     <label for="inputUsername" class="sr-only">Username</label>
-    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+    <input type="text" id="inputUsername" class="form-control" placeholder="Username" autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" >
+    <!-- <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Remember me
       </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    
+    </div> -->
+    <button class="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
+    <br>   
+      <a href="/create/create-user.html" id="registerLink" class="badge badge-dark">Register New Employee</a>
     <p id="error-message"></p>
   </form>
-  <!-- <div id="registerForm" class="col">
-      <form action="/create/create-user.html">
-
-        <button class="btn btn-dark btn-block btn-block" type="submit">Register</button>
-
-      </form>
-    </div> -->
+  
   
       
     

@@ -39,6 +39,7 @@ function addReimbToTable(reimb) {
   `
 }
 user = JSON.parse(localStorage.getItem('user'));
+document.getElementById('currentUser').innerText = `Welcome ${user.user_fname}`;
 const tableHTML = `
 <div class="container" id="movie-table-container">
     <div class="row">

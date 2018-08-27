@@ -13,9 +13,9 @@
 
 <!-- nav bar -->
 
-<body>
+<body class="bg-secondary">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Revature</a>
+    <a class="navbar-brand" href="#">Please Help Poor</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,11 +28,9 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+        
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</a>
           <div class="dropdown-menu" aria-labelledby="dropdown04">
             <a class="dropdown-item" href="/create/create-user.html">Create New Employee</a>
             <a class="dropdown-item" href="/create/create-reimb.html">Create Reimbursement</a>
@@ -46,6 +44,9 @@
     </div>
   </nav>
 
+<!-- current user -->
+  <p id="currentUser"></p>
+  
   <!-- Reimbursement table -->
   <div class="container" id="movie-table-container">
     <div class="row">
@@ -75,7 +76,7 @@
   <div class="container" id="movie-table-container">
     <div class="row">
       <div class="dropdown col">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
           Filter Reimbursements
         </button>

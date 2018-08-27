@@ -60,8 +60,9 @@ export async function findByUsernameAndPassword(username: string, password: stri
         let user = new User();
         if(resp.rows.length !== 0) {
         user = resp.rows[0];
+        return user;
       }
-      return user;
+      return undefined;
   } finally {
     client.release();
   }

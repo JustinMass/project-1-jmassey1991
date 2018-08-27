@@ -55,3 +55,11 @@ body {
 #error-message {
   color: red;
 }
+
+#registerLink {
+  padding: 1em;
+}
+#pleaseHelpPoor {
+  font-size: 3em;
+  font-family: cursive;
+}
