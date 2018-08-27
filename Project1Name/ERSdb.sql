@@ -18,13 +18,13 @@ CREATE TABLE ers.reimbursements
 (
     reimb_id serial NOT NULL,
     reimb_submitted timestamp NOT NULL,
-    reimb_resovled timestamp,
-    reimb_description character varying(250),
+    reimb_resolved timestamp,
+    reimb_description character varying(250) NOT NULL,
     reimb_receipt character varying(250),
-    reimb_author integer REFERENCES ers.users(user_id)ON DELETE CASCADE,
+    reimb_author integer REFERENCES ers.users(user_id)ON DELETE CASCADE NOT NULL,
     reimb_resolver integer REFERENCES ers.users(user_id)ON DELETE CASCADE,
-    reimb_status character varying(10),
-    reimb_type character varying(8),
+    reimb_status character varying(10) NOT NULL,
+    reimb_type character varying(8)NOT NULL,
     PRIMARY KEY (reimb_id)
 );
 
