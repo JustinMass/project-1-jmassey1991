@@ -9,9 +9,10 @@ export class Reimb {
   reimb_resolver = 0;
   reimb_status = '';
   reimb_type = '';
+  reimb_amount = 1;
   
 
-  constructor(id?: number, submitted?: string, resolved?: string, description?: string, receipt?: string, author?: number, resolver?: number, status?: string, type?: string ) {
+  constructor(id?: number, submitted?: string, resolved?: string, description?: string, receipt?: string, author?: number, resolver?: number, status?: string, type?: string, amount?: number ) {
     id && (this.reimb_id = id);
     submitted && (this.reimb_submitted = submitted);
     resolved && (this.reimb_resolved = resolved);
@@ -21,6 +22,7 @@ export class Reimb {
     resolver && (this.reimb_resolver = resolver);
     status && (this.reimb_status = status);
     type && (this.reimb_type = type);
+    amount && (this.reimb_amount = amount);
     
   }
 }

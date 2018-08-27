@@ -7,7 +7,7 @@ export function authMiddleware(...roles: string[]) {
       return;
     }
     const hasPermission = roles.some(role => {
-      if (user.role === role) {
+      if (user.user_role === role) {
         return true;
       } else {
         return false;

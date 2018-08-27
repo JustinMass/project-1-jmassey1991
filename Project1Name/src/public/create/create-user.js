@@ -28,7 +28,7 @@ function createUser(event) {
   })
   .then(resp => resp.json())
   .then(resp => {
-    window.location = 'http://localhost:9001/home/home.html';
+    window.location = 'http://localhost:9001/login-page/login.html';
   })
   .catch(err => {
     console.log(err);

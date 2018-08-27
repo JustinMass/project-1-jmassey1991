@@ -31,3 +31,6 @@ function login(event) {
       console.log(err);
     });
 }
+
+// setting user to empty if calling log in screen
+localStorage.clear();

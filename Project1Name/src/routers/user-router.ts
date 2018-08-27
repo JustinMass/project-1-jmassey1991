@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import express from 'express';
 import * as userDao from '../dao/user-dao';
+import { authMiddleware } from '../security/authorization-middleware';
 
 // all routes defiend with this object will imply /users
 export const userRouter = express.Router(); // routers represent a subset of routes for the express application
@@ -40,7 +41,8 @@ userRouter.get('/:id', async (req, resp) => {
 /**
  * Add a new user
  */
-userRouter.post('', async (req, resp) => {
+userRouter.post('', [
+  authMiddleware('fm', 'employee'), async (req, resp) => {
   console.log('creating user')
   try {
     const id = await userDao.create(req.body);
@@ -50,7 +52,7 @@ userRouter.post('', async (req, resp) => {
     console.log(err);
     resp.sendStatus(500);
   }
-})
+}])
 
 
 /**

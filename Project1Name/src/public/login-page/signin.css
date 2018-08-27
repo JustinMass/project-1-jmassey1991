@@ -47,7 +47,10 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+#registerForm {
+  margin-top: 2em;
+  text-align: center;
+}
 
 #error-message {
   color: red;

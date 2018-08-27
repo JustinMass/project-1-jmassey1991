@@ -53,13 +53,15 @@ export async function findByUsernameAndPassword(username: string, password: stri
   const client = await connectionPool.connect();
   try {
     const resp = await client.query(
-      `SELECT * FROM ers.users u
-        WHERE u.username = $1
-        AND u.user_pass = $2`, [username, password]);
+      `SELECT * FROM ers.users 
+        WHERE username = $1
+        AND user_pass = $2`, [username, password]);
+       
+        let user = new User();
         if(resp.rows.length !== 0) {
-          return new User(resp.rows[0]); // get the user data from first row
-        }
-        return null;
+        user = resp.rows[0];
+      }
+      return user;
   } finally {
     client.release();
   }
