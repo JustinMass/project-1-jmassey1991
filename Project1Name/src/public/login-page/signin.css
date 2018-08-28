@@ -57,7 +57,12 @@ body {
 }
 
 #registerLink {
+  font-size: 1em;
   padding: 1em;
+  height: 3em;
+  width: 18.7em;
+  font-weight: 450;
+  margin-top: .5em;
 }
 #pleaseHelpPoor {
   font-size: 3em;
