@@ -25,12 +25,12 @@ function addReimbToTable(reimb) {
   //console.log(reimb.reimb_amount);
   tbody.innerHTML += `
   <tr>
-  <th scope="row">${reimb.reimb_id}</th>
+  <th scope="row" class="empHide">${reimb.reimb_id}</th>
   <td>${reimb.reimb_submitted.slice(0, 10)}</td>
   <td>${(reimb.reimb_resolved ? reimb.reimb_resolved.slice(0, 10) : '')}</td>
   <td>${reimb.reimb_description}</td>
   <td>${(reimb.reimb_receipt ? reimb.reimb_receipt : '')}</td>
-  <td>${reimb.reimb_author}</td>
+  <td class="empHide">${reimb.reimb_author}</td>
   <td>${(reimb.reimb_resolver ? reimb.reimb_resolver : '')}</td>
   <td>${reimb.reimb_status}</td>
   <td>${reimb.reimb_type}</td>
@@ -46,16 +46,16 @@ const tableHTML = `
       <table class="table table-striped table-dark col" id="movie-table">
         <thead>
           <tr>
-            <th scope="col">Reimbursement ID</th>
-            <th scope="col">Date Submitted</th>
-            <th scope="col">Date Resolved</th>
-            <th scope="col">Description</th>
-            <th scope="col">Receipt</th>
-            <th scope="col">Author ID</th>
-            <th scope="col">Resolver ID</th>
-            <th scope="col">Status</th>
-            <th scope="col">Type</th>
-            <th scope="col">Amount</th>
+          <th scope="col" class="empHide">Reimbursement ID</th>
+          <th scope="col">Date Submitted</th>
+          <th scope="col">Date Resolved</th>
+          <th scope="col">Description</th>
+          <th scope="col">Receipt</th>
+          <th scope="col" class="empHide">Author ID</th>
+          <th scope="col">Resolver ID</th>
+          <th scope="col">Status</th>
+          <th scope="col">Type</th>
+          <th scope="col">Amount</th>
           </tr>
         </thead>
         <tbody id="movie-table-body">
@@ -103,6 +103,12 @@ if (user.user_role === 'fm') {
 // else they should be an employee or other role
 else {
   document.getElementById('fmEdit-container').style.visibility = "hidden";
+  //  hideElements = document.getElementsByClassName('empHide');
+  //  for(let i = 0; i < hideElements.length; i++){
+  //    console.log(hideElements[i]);
+  //    hideElements[i].style.visibility = "hidden";
+  //  }
+  //document.getElementById('authorId').style.visibility = "hidden";
   fetch(`http://localhost:9001/reimbs/${user.user_id}`)
     .then(res => res.json())
     .then(res => {
