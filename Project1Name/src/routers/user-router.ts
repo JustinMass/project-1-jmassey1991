@@ -79,6 +79,7 @@ userRouter.post('/login', async (req, resp) => {
 
     if (user) {
       req.session.user = user;
+      // console.log(req.session.user);
       resp.json(user);
     } else {
       resp.sendStatus(401);

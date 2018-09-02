@@ -61,7 +61,7 @@ class SignInComponent extends React.Component<IProps, {}> {
     const { errorMessage, credentials } = this.props;
 
     return (
-      <body className="text-center signin-container bg-secondary">
+      <div className="text-center signin-container bg-secondary">
       <form className="form-signin" onSubmit={this.submit}>
         <h1 id="pleaseHelpPoor" className="h3 mb-3 font-weight-normal">Please Help Poor</h1>
 
@@ -89,7 +89,7 @@ class SignInComponent extends React.Component<IProps, {}> {
         {errorMessage && <p id="error-message">{errorMessage}</p>}
       </form>
       <Link id="registerLink" className="badge badge-light" to="/first">Register</Link>
-      </body>
+      </div>
     );
   }
 }

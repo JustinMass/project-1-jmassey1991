@@ -32,7 +32,19 @@ export interface ISignInState {
 }
 
 export interface IHomeState {
-  reimbs: [{}]
+  reimbs: [{
+    reimb_id: number,
+    reimb_submitted: string,
+    reimb_resolved:  string,
+    reimb_description: string,
+    reimb_receipt: string,
+    reimb_author: number,
+    reimb_resolver: number,
+    reimb_status: string,
+    reimb_type: string,
+    reimb_amount: number
+  }],
+  filter: string
 }
 
 export interface IState {

@@ -9,8 +9,7 @@ export const reimbRouter = express.Router(); // routers represent a subset of ro
 /**
  * Find all reinbursements
  */
-reimbRouter.get('', [
-  authMiddleware('fm'), async (req: Request, resp: Response) => {
+reimbRouter.get('', async (req: Request, resp: Response) => {
   try {
     console.log('retrieving all reimbursments');
     let reimbs = await reimbDao.findAll();
@@ -19,7 +18,7 @@ reimbRouter.get('', [
     console.log(err);
     resp.sendStatus(500);
   }
-}]);
+});
 
 // /**
 //  * Find all reimbursements pending status
@@ -175,38 +174,3 @@ reimbRouter.put('', async (req, resp) => {
   }
 })
 
-
-
-// /**
-//  * Add a movie to users list
-//  */
-// // userRouter.post('/:id/movies', async (req, resp) => {
-// //   console.log('creating user')
-// //   try {
-// //     const id = await userDao.addMovieToUser(req.body.movieId, req.params.id);
-// //     resp.sendStatus(201);
-// //   } catch (err) {
-// //     console.log(err);
-// //     resp.sendStatus(500);
-// //   }
-// // })
-
-// /**
-//  * login with username and pass
-//  */
-// userRouter.post('/login', async (req, resp) => {
-
-//   try {
-//     const user = await userDao.findByUsernameAndPassword(req.body.username, req.body.password);
-
-//     if (user) {
-//       req.session.user = user;
-//       resp.json(user);
-//     } else {
-//       resp.sendStatus(401);
-//     }
-//   } catch (err) {
-//     console.log(err);
-//     resp.sendStatus(500);
-//   }
-// })

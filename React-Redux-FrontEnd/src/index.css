@@ -26,5 +26,8 @@ body {
 #homeContainer {
   width: 100%;
 }
-
+.custom-select {
+  width: 15%;
+  margin-left: .5em;
+}
 

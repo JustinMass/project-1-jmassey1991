@@ -22,7 +22,7 @@ const AppNav: React.StatelessComponent<any> = (props) => {
               <Link to="/home" className="unset-anchor nav-link">Home</Link>
             </li>
             <li className="nav-item active">
-              <Link to="/sign-in" className="unset-anchor nav-link">Sign In</Link>
+              <Link to="/sign-in" className="unset-anchor nav-link">Logout</Link>
             </li>
             <li className="nav-item active">
               <Link to="/first" className="unset-anchor nav-link">First</Link>
