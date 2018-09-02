@@ -3,9 +3,9 @@ import './App.css';
 import './include/bootstrap';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
-import AppNav from './components/nav/nav.component';
+// import AppNav from './components/nav/nav.component';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { HomeComponent } from './components/home/home.component';
+import  HomeComponent  from './components/home/home.component';
 import SignInComponent from './components/sign-in/sign-in.component';
 import ClickerComponent from './components/clicker/clicker.component';
 import { TicTacComponent } from './components/tic-tac/tic-tac.component';
@@ -15,14 +15,14 @@ import { MoviesComponent } from './components/movies/movie.component';
 import { NestedComponent } from './components/nested/nested.component';
 import { Provider } from 'react-redux';
 import { store } from './Store';
+import signInComponent from './components/sign-in/sign-in.component';
 
 class App extends React.Component {
   public render() {
+    {document.body.className = "bg-secondary"}
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <div>
-            <AppNav />
             <div id="main-content-container">
               <Switch>
                 <Route path="/first" component={FirstComponent} />
@@ -35,10 +35,9 @@ class App extends React.Component {
                 <Route path="/pokemon" component={PokemonComponent} />
                 <Route path="/movies" component={MoviesComponent} />
                 <Route path="/nested" component={NestedComponent} />
-                <Route component={HomeComponent} />
+                <Route component={signInComponent} />
               </Switch>
             </div>
-          </div>
         </BrowserRouter>
       </Provider>
     );

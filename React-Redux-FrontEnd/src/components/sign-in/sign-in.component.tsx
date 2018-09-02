@@ -3,6 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import { ISignInState, IState } from '../../reducers';
 import * as signInActions from '../../actions/sign-in/sign-in.actions';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 interface IProps extends RouteComponentProps<{}>, ISignInState {
   updateError: (message: string) => any
@@ -20,7 +21,7 @@ class SignInComponent extends React.Component<IProps, {}> {
 
   public submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch('http://localhost:3000/users/login', {
+    fetch('http://localhost:9001/users/login', {
       body: JSON.stringify(this.props.credentials),
       credentials: 'include',
       headers: {
@@ -60,8 +61,9 @@ class SignInComponent extends React.Component<IProps, {}> {
     const { errorMessage, credentials } = this.props;
 
     return (
+      <body className="text-center signin-container bg-secondary">
       <form className="form-signin" onSubmit={this.submit}>
-        <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h1 id="pleaseHelpPoor" className="h3 mb-3 font-weight-normal">Please Help Poor</h1>
 
         <label htmlFor="inputUsername" className="sr-only">Username</label>
         <input
@@ -83,9 +85,11 @@ class SignInComponent extends React.Component<IProps, {}> {
           placeholder="Password"
           required />
 
-        <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button id="signInButton" className="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
         {errorMessage && <p id="error-message">{errorMessage}</p>}
       </form>
+      <Link id="registerLink" className="badge badge-light" to="/first">Register</Link>
+      </body>
     );
   }
 }

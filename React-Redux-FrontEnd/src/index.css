@@ -1,5 +1,30 @@
+#signInButton {
+  margin-top: .5em;
+}
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
+
+#registerLink {
+  font-size: 1em;
+  padding: 1em;
+  height: 3em;
+  width: 18.7em;
+  font-weight: 450;
+  margin-top: .5em;
+}
+#pleaseHelpPoor {
+  font-size: 3em;
+  font-family: cursive;
+}
+.form-signin {
+  width: 18.7em;
+  margin-top: 5em;
+}
+#homeContainer {
+  width: 100%;
+}
+
+
