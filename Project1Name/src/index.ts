@@ -47,6 +47,7 @@ app.use((req, resp, next) => {
   resp.header("Access-Control-Allow-Origin", "http://localhost:3000");
   resp.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   resp.header("Access-Control-Allow-Credentials", "true");
+  resp.header("Access-Control-Allow-Methods", "PUT, POST");
   next();
 })
 

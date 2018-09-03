@@ -16,6 +16,7 @@ import { NestedComponent } from './components/nested/nested.component';
 import { Provider } from 'react-redux';
 import { store } from './Store';
 import signInComponent from './components/sign-in/sign-in.component';
+import  FmHomeComponent  from './components/home/fm-home.component';
 
 class App extends React.Component {
   public render() {
@@ -35,6 +36,7 @@ class App extends React.Component {
                 <Route path="/pokemon" component={PokemonComponent} />
                 <Route path="/movies" component={MoviesComponent} />
                 <Route path="/nested" component={NestedComponent} />
+                <Route path="/fmhome" component={FmHomeComponent} />
                 <Route component={signInComponent} />
               </Switch>
             </div>

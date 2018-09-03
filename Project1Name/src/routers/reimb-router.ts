@@ -23,8 +23,7 @@ reimbRouter.get('', async (req: Request, resp: Response) => {
 // /**
 //  * Find all reimbursements pending status
 //  */
-reimbRouter.get('/pending', [
-  authMiddleware('fm'), async (req, resp) => {
+reimbRouter.get('/pending', async (req, resp) => {
   console.log(`retreiving pending reimbursements`)
   try {
     let reimbs = await reimbDao.findAll();
@@ -40,7 +39,7 @@ reimbRouter.get('/pending', [
   } catch (err) {
     resp.sendStatus(500);
   }
-}]);
+});
 
 // /**
 //  * Find reimbursements by reimb ID
@@ -147,8 +146,7 @@ reimbRouter.get('/declined/:id', async (req, resp) => {
 // /**
 //  * Add a new reimbursement
 //  */
-reimbRouter.post('', [
-  authMiddleware('employee'), async (req, resp) => {
+reimbRouter.post('', async (req, resp) => {
   console.log('creating reimbursement')
   try {
     const id = await reimbDao.create(req.body);
@@ -158,7 +156,7 @@ reimbRouter.post('', [
     console.log(err);
     resp.sendStatus(500);
   }
-}])
+})
 /*
 * update reimbursement
 */

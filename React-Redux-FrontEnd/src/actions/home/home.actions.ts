@@ -1,5 +1,6 @@
 
 export const homeTypes = {
+    APPROVE_OR_DENY: 'APPROVE_OR_DENY',
     FILTER_FM_TABLE: 'FILTER_FM_TABLE',
     FILTER_TABLE: 'FILTER_TABLE',
     LOAD_FM_TABLE: 'LOAD_FM_TABLE',
@@ -41,7 +42,7 @@ export const loadFmTable = () => (dispatch: any) => {
         .catch((err: any) => {
             console.log(err);
         })
-  }
+}
 
 export const loadTable = (id: number) => (dispatch: any) => {
     const getReimbs: any = fetch(`http://localhost:9001/reimbs/${id}`);
@@ -155,3 +156,92 @@ export const filterFmTable = (filter: string) => (dispatch: any) => {
             console.log(err);
         })
 }
+
+export const approveDeny = (status: string, userId: number, reimbs: any[], ids: number[]) => (dispatch: any) => {
+    const targetReimbs: any[] = []
+    // console.log(reimbs);
+    // console.log(ids);
+    reimbs.forEach((index) => {
+        // console.log(index);
+        ids.forEach((j) => {
+           // console.log(typeof (+j));
+            // console.log(typeof (index.reimb_id));
+            if (index.reimb_id === +j) {
+                index.reimb_resolved = new Date().toISOString().slice(0, 19).replace('T', ' ');
+                index.reimb_status = status;
+                index.reimb_receipt = `Receipt:${index.reimb_id} \n
+                Status:${index.reimb_status} \n
+                for an amount of $${index.reimb_amount}`;
+                index.reimb_resolver = userId;
+                targetReimbs.push(index);
+            }
+        })
+    });
+    console.log(targetReimbs)
+    targetReimbs.forEach((index) => {
+        fetch('http://localhost:9001/reimbs', {
+            body: JSON.stringify(index),
+            // credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'PUT',
+        })
+            .then(resp => {
+               // console.log(resp.status)
+                if (resp.status === 401) {
+                    console.log('got 401')
+                } else if (resp.status === 201) {
+                    return resp.json();
+                }
+               // throw new Error('Failed to login');
+               return null;
+            })
+            .then(resp => {
+                console.log(`Created Reimbursement with id:${resp}`);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    });
+}
+
+export const addReimb = (type: string, userId: number, description: string, amount: number) => (dispatch: any) => {
+   // console.log('in addReimb');
+   const reimb = {
+        reimb_amount: amount,
+        reimb_author: userId,
+        reimb_description: description,
+        reimb_status: 'pending',
+        reimb_submitted: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        reimb_type: type,
+        }
+    
+        fetch('http://localhost:9001/reimbs', {
+            body: JSON.stringify(reimb),
+            // credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+        })
+            .then(resp => {
+               // console.log(resp.status)
+                if (resp.status === 401) {
+                    console.log('got 401')
+                } else if (resp.status === 201) {
+                    return resp.json();
+                }
+               // throw new Error('Failed to login');
+               return null;
+            })
+            .then(resp => {
+                console.log(`Updated Reimbursement with id:${resp}`);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+}
+    
