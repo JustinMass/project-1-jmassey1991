@@ -3,6 +3,8 @@ import { IHomeState, IState } from '../../reducers';
 import AppNav from '../nav/nav.component'
 import { loadFmTable, filterFmTable, approveDeny } from '../../actions/home/home.actions'
 import { connect } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export let user = {
@@ -42,14 +44,28 @@ export class FmHomeComponent extends React.Component<IProps, any> {
 
   public denyReimbs = () => {
     this.props.approveDeny('declined', user.user_id, this.props.reimbs, checkedReimbs);
-    setTimeout(() => {  this.props.loadFmTable(); }, 3000);
-    // this.props.loadFmTable();
+    toast("Updating Reimbursements", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
+    setTimeout(() => {
+      this.props.loadFmTable();
+      toast("Reimbursements Updated Successfully", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }, 3000);
   }
 
   public approveReimbs = () => {
     this.props.approveDeny('approved', user.user_id, this.props.reimbs, checkedReimbs);
-    setTimeout(() => {  this.props.loadFmTable(); }, 2500);
-    // this.props.loadFmTable();
+    toast("Updating Reimbursements", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
+    setTimeout(() => {
+      this.props.loadFmTable();
+      toast("Reimbursements Updated Successfully", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }, 3000);
   }
 
   public addorRemoveReimb = (e: any) => {
@@ -63,8 +79,6 @@ export class FmHomeComponent extends React.Component<IProps, any> {
     else {
       checkedReimbs.push(e.target.value);
     }
-    // console.log(checkedReimbs);
-
   }
 
 
@@ -72,8 +86,9 @@ export class FmHomeComponent extends React.Component<IProps, any> {
     const { reimbs } = this.props;
 
     return (
-      <div id="homeContainer">
+      <div className="homeContainer">
         <AppNav />
+        <ToastContainer autoClose={3000} />
         <h4 className="welcomeHeading">Welcome {user.user_fname}</h4>
         <div id="tableContainer">
           <div className="container" id="movie-table-container">

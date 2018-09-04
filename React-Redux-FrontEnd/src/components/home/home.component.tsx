@@ -4,6 +4,8 @@ import { IHomeState, IState } from '../../reducers';
 import { connect } from 'react-redux';
 import { loadTable, filterTable, addReimb } from '../../actions/home/home.actions'
 import { RouteComponentProps } from 'react-router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 interface IProps extends RouteComponentProps<{}>, IHomeState {
@@ -47,7 +49,10 @@ export class HomeComponent extends React.Component<IProps, {}> {
   public submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     this.props.addReimb(Reimbform.type, user.user_id, Reimbform.description, Reimbform.amount);
-    setTimeout(() => {  this.props.loadTable(user.user_id); }, 500);
+    toast("Successfully Added Reimbursement", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
+    setTimeout(() => { this.props.loadTable(user.user_id); }, 500);
   }
 
   public filterReimbs = (e: any) => {
@@ -59,8 +64,9 @@ export class HomeComponent extends React.Component<IProps, {}> {
     const { reimbs } = this.props;
 
     return (
-      <div id="homeContainer">
+      <div className="homeContainer">
         <AppNav />
+        <ToastContainer autoClose={4000} />
         <h4 className="welcomeHeading">Welcome {user.user_fname}</h4>
         <div id="tableContainer">
           <div className="container" id="movie-table-container">
@@ -112,9 +118,9 @@ export class HomeComponent extends React.Component<IProps, {}> {
             </div>
             <div className="row align-items-center">
               <form className="collapse col-4" id="collapseForm" onSubmit={this.submit}>
-              <label>Type</label>
+                <label>Type</label>
                 <select className="form-control newReimbForm" onChange={(e: any) => {
-                  Reimbform.type = e.target.value; 
+                  Reimbform.type = e.target.value;
                 }}>
                   <option></option>
                   <option value="Logging">Logging</option>
@@ -123,12 +129,12 @@ export class HomeComponent extends React.Component<IProps, {}> {
                   <option value="Food">Food</option>
                 </select>
                 <label>Description</label>
-                <input type="text" className="form-control newReimbForm" placeholder="Description" onChange={(e:any) => {
-                Reimbform.description = e.target.value;
+                <input type="text" className="form-control newReimbForm" placeholder="Description" onChange={(e: any) => {
+                  Reimbform.description = e.target.value;
                 }}></input>
                 <label>Amount</label>
-                <input type="number" className="form-control newReimbForm" placeholder="Amount"onChange={(e:any) => {
-                Reimbform.amount = e.target.value;
+                <input type="number" className="form-control newReimbForm" placeholder="Amount" onChange={(e: any) => {
+                  Reimbform.amount = e.target.value;
                 }}></input>
                 <button id="newReimbButton" className="btn btn-dark btn-block" type="submit">Create Reimbursement</button>
               </form>
