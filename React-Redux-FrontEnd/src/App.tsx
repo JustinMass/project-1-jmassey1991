@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
 import './include/bootstrap';
-import { FirstComponent } from './components/first/first.component';
+import { RegisterComponent } from './components/first/register.component';
 import { SecondComponent } from './components/second/second.component';
 // import AppNav from './components/nav/nav.component';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -26,7 +26,7 @@ class App extends React.Component {
         <BrowserRouter>
             <div id="main-content-container">
               <Switch>
-                <Route path="/first" component={FirstComponent} />
+                <Route path="/register" component={RegisterComponent} />
                 <Route path="/second" component={SecondComponent} />
                 <Route path="/home" component={HomeComponent} />
                 <Route path="/sign-in" component={SignInComponent} />

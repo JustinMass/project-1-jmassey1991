@@ -87,7 +87,7 @@ class SignInComponent extends React.Component<IProps, {}> {
 
         <button id="signInButton" className="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
       </form>
-      <Link id="registerLink" className="badge badge-light" to="/first">Register</Link>
+      <Link id="registerLink" className="badge badge-light" to="/register">Register</Link>
       {errorMessage && <p id="error-message">{errorMessage}</p>}
       </div>
     );

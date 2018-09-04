@@ -199,7 +199,7 @@ export const approveDeny = (status: string, userId: number, reimbs: any[], ids: 
                return null;
             })
             .then(resp => {
-                console.log(`Created Reimbursement with id:${resp}`);
+                console.log(`Updated Reimbursement with id:${resp}`);
             })
             .catch(err => {
                 console.log(err);
@@ -238,7 +238,7 @@ export const addReimb = (type: string, userId: number, description: string, amou
                return null;
             })
             .then(resp => {
-                console.log(`Updated Reimbursement with id:${resp}`);
+                console.log(`Creating Reimbursement with id:${resp}`);
             })
             .catch(err => {
                 console.log(err);

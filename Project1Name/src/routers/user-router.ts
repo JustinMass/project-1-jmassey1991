@@ -41,8 +41,7 @@ userRouter.get('/:id', async (req, resp) => {
 /**
  * Add a new user
  */
-userRouter.post('', [
-  authMiddleware('fm', 'employee'), async (req, resp) => {
+userRouter.post('', async (req, resp) => {
   console.log('creating user')
   try {
     const id = await userDao.create(req.body);
@@ -52,7 +51,7 @@ userRouter.post('', [
     console.log(err);
     resp.sendStatus(500);
   }
-}])
+})
 
 
 /**

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { FirstComponent } from '../first/first.component';
 
 export class SecondComponent extends React.Component {
   public render() {
@@ -7,10 +6,6 @@ export class SecondComponent extends React.Component {
       <div>
         <p>
           second component
-        </p>
-        <FirstComponent />
-        <p>
-          below first in second
         </p>
       </div>
     );
