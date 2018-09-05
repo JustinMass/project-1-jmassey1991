@@ -1,3 +1,4 @@
+import { environment } from "../../environment";
 
 export const homeTypes = {
     APPROVE_OR_DENY: 'APPROVE_OR_DENY',
@@ -8,7 +9,7 @@ export const homeTypes = {
 }
 
 export const loadFmTable = () => (dispatch: any) => {
-    const getReimbs: any = fetch(`http://localhost:9001/reimbs`, {credentials: 'include'});
+    const getReimbs: any = fetch(`${environment.context}reimbs`, {credentials: 'include'});
     getReimbs
         .then((resp: any) => {
             return resp.json();
@@ -45,7 +46,7 @@ export const loadFmTable = () => (dispatch: any) => {
 }
 
 export const loadTable = (id: number) => (dispatch: any) => {
-    const getReimbs: any = fetch(`http://localhost:9001/reimbs/${id}`, {credentials: 'include'});
+    const getReimbs: any = fetch(`${environment.context}reimbs/${id}`, {credentials: 'include'});
     getReimbs
         .then((resp: any) => {
             return resp.json();
@@ -82,7 +83,7 @@ export const loadTable = (id: number) => (dispatch: any) => {
 }
 
 export const filterTable = (filter: string, id: number) => (dispatch: any) => {
-    const getReimbs: any = fetch(`http://localhost:9001/reimbs/${filter}/${id}`, {credentials: 'include'});
+    const getReimbs: any = fetch(`${environment.context}reimbs/${filter}/${id}`, {credentials: 'include'});
     getReimbs
         .then((resp: any) => {
             return resp.json();
@@ -120,7 +121,7 @@ export const filterTable = (filter: string, id: number) => (dispatch: any) => {
 }
 
 export const filterFmTable = (filter: string) => (dispatch: any) => {
-    const getReimbs: any = fetch(`http://localhost:9001/reimbs/${filter}`, {credentials: 'include'});
+    const getReimbs: any = fetch(`${environment.context}reimbs/${filter}`, {credentials: 'include'});
     getReimbs
         .then((resp: any) => {
             return resp.json();
@@ -179,7 +180,7 @@ export const approveDeny = (status: string, userId: number, reimbs: any[], ids: 
     });
     console.log(targetReimbs)
     targetReimbs.forEach((index) => {
-        fetch('http://localhost:9001/reimbs', {
+        fetch(`${environment.context}reimbs`, {
             body: JSON.stringify(index),
             credentials: 'include',
             headers: {
@@ -218,7 +219,7 @@ export const addReimb = (type: string, userId: number, description: string, amou
         reimb_type: type,
         }
     
-        fetch('http://localhost:9001/reimbs', {
+        fetch(`${environment.context}reimbs`, {
             body: JSON.stringify(reimb),
             credentials: 'include',
             headers: {

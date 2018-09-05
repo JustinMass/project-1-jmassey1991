@@ -2,6 +2,7 @@ import * as React from 'react';
 // import AppNav from '../nav/nav.component'
 import { RouteComponentProps } from 'react-router';
 import { user } from '../home/home.component'
+import { environment } from '../../environment';
 
 interface IProps extends RouteComponentProps<{}> {
 
@@ -14,7 +15,7 @@ export class RegisterComponent extends React.Component<IProps, {}> {
     user.user_role = 'employee';
 
   
-      fetch('http://localhost:9001/users', {
+      fetch(`${environment.context}users`, {
           body: JSON.stringify(user),
           // credentials: 'include',
           headers: {

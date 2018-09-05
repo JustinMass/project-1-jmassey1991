@@ -4,6 +4,7 @@ import { ISignInState, IState } from '../../reducers';
 import * as signInActions from '../../actions/sign-in/sign-in.actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { environment } from '../../environment';
 
 interface IProps extends RouteComponentProps<{}>, ISignInState {
   updateError: (message: string) => any
@@ -21,7 +22,7 @@ class SignInComponent extends React.Component<IProps, {}> {
 
   public submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    fetch('http://localhost:9001/users/login', {
+    fetch(`${environment.context}users/login`, {
       body: JSON.stringify(this.props.credentials),
       credentials: 'include',
       headers: {
