@@ -1,5 +1,5 @@
 import * as React from 'react';
-import AppNav from '../nav/nav.component'
+// import AppNav from '../nav/nav.component'
 import { RouteComponentProps } from 'react-router';
 import { user } from '../home/home.component'
 
@@ -45,10 +45,10 @@ export class RegisterComponent extends React.Component<IProps, {}> {
   public render() {
     return (
       <div className="homeContainer">
-        <AppNav />
+        {/* <AppNav /> */}
         <div className="row align-items-center">
         <div className="col-4"></div>
-        <form className="col-4" onSubmit={this.submit}>
+        <form className="col-4 registerForm" onSubmit={this.submit}>
              
                 <label>Username</label>
                 <input type="text" className="form-control newReimbForm" placeholder="Username" onChange={(e: any) => {

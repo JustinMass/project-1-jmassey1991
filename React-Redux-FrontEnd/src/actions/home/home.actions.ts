@@ -8,7 +8,7 @@ export const homeTypes = {
 }
 
 export const loadFmTable = () => (dispatch: any) => {
-    const getReimbs: any = fetch(`http://localhost:9001/reimbs`);
+    const getReimbs: any = fetch(`http://localhost:9001/reimbs`, {credentials: 'include'});
     getReimbs
         .then((resp: any) => {
             return resp.json();
@@ -45,7 +45,7 @@ export const loadFmTable = () => (dispatch: any) => {
 }
 
 export const loadTable = (id: number) => (dispatch: any) => {
-    const getReimbs: any = fetch(`http://localhost:9001/reimbs/${id}`);
+    const getReimbs: any = fetch(`http://localhost:9001/reimbs/${id}`, {credentials: 'include'});
     getReimbs
         .then((resp: any) => {
             return resp.json();
@@ -82,7 +82,7 @@ export const loadTable = (id: number) => (dispatch: any) => {
 }
 
 export const filterTable = (filter: string, id: number) => (dispatch: any) => {
-    const getReimbs: any = fetch(`http://localhost:9001/reimbs/${filter}/${id}`);
+    const getReimbs: any = fetch(`http://localhost:9001/reimbs/${filter}/${id}`, {credentials: 'include'});
     getReimbs
         .then((resp: any) => {
             return resp.json();
@@ -120,7 +120,7 @@ export const filterTable = (filter: string, id: number) => (dispatch: any) => {
 }
 
 export const filterFmTable = (filter: string) => (dispatch: any) => {
-    const getReimbs: any = fetch(`http://localhost:9001/reimbs/${filter}`);
+    const getReimbs: any = fetch(`http://localhost:9001/reimbs/${filter}`, {credentials: 'include'});
     getReimbs
         .then((resp: any) => {
             return resp.json();
@@ -181,7 +181,7 @@ export const approveDeny = (status: string, userId: number, reimbs: any[], ids: 
     targetReimbs.forEach((index) => {
         fetch('http://localhost:9001/reimbs', {
             body: JSON.stringify(index),
-            // credentials: 'include',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -220,7 +220,7 @@ export const addReimb = (type: string, userId: number, description: string, amou
     
         fetch('http://localhost:9001/reimbs', {
             body: JSON.stringify(reimb),
-            // credentials: 'include',
+            credentials: 'include',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
