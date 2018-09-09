@@ -123,7 +123,7 @@ export class HomeComponent extends React.Component<IProps, {}> {
                   Reimbform.type = e.target.value;
                 }}>
                   <option></option>
-                  <option value="Logging">Logging</option>
+                  <option value="Logging">Lodging</option>
                   <option value="Travel">Travel</option>
                   <option value="Other">Other</option>
                   <option value="Food">Food</option>

@@ -17,7 +17,8 @@ body {
 }
 #pleaseHelpPoor {
   font-size: 3em;
-  font-family: cursive;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 1.3em;
 }
 .form-signin {
   width: 18.7em;

@@ -19,6 +19,10 @@ import signInComponent from './components/sign-in/sign-in.component';
 import  FmHomeComponent  from './components/home/fm-home.component';
 
 class App extends React.Component {
+
+  public componentDidMount() {
+    document.title = "Please Help";
+  }
   public render() {
     {document.body.className = "bg-secondary"}
     return (
