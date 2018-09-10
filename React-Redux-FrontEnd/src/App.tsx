@@ -21,7 +21,7 @@ import  FmHomeComponent  from './components/home/fm-home.component';
 class App extends React.Component {
 
   public componentDidMount() {
-    document.title = "Please Help";
+    document.title = "Reasonable Reimbursements";
   }
   public render() {
     {document.body.className = "bg-secondary"}

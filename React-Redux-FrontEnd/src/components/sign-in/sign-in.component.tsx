@@ -64,7 +64,7 @@ class SignInComponent extends React.Component<IProps, {}> {
     return (
       <div className="text-center signin-container bg-secondary">
       <form className="form-signin" onSubmit={this.submit}>
-        <h1 id="pleaseHelpPoor" className="h3 font-weight-normal">Please Help</h1>
+        <h1 id="pleaseHelpPoor">Reasonable Reimbursements</h1>
 
         <label htmlFor="inputUsername" className="sr-only">Username</label>
         <input
