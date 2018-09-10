@@ -136,8 +136,8 @@ export class FmHomeComponent extends React.Component<IProps, any> {
                 <option value="default">Default</option>
                 <option value="pending">Pending</option>
               </select>
-              <button className="btn btn-light btn-block col-2 fmButtons" onClick={this.approveReimbs}>Approve</button>
-              <button className="btn btn-light btn-block col-2 fmButtons" onClick={this.denyReimbs}>Deny</button>
+              <button className="btn btn-light btn-block col-2 fmButtons" onClick={this.approveReimbs}>Seems Reasonable</button>
+              <button className="btn btn-light btn-block col-2 fmButtons" onClick={this.denyReimbs}>Not So Reasonable</button>
             </div>
           </div>
         </div>
